@@ -1,0 +1,12 @@
+on: [push]
+name: HACK CI
+jobs:
+  build_and_test:
+    name: HACK CI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: "Run tests."
+        run: make build && make perm
+      - name: "Hackify a string."
+        run: ./hack "Hello World!"
